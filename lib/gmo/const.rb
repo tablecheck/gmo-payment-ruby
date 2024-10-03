@@ -14,6 +14,8 @@ module GMO
       apple_pay: 'APay'
     }.freeze
 
+    HTTP_READ_TIMEOUT = 30
+
     INPUT_PARAMS = {
       :access_id             => "AccessID",
       :access_pass           => "AccessPass",

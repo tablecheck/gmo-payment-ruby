@@ -69,10 +69,8 @@ module GMO
             else
               http = Net::HTTP.new server, 443
             end
-            if options[:timeout]
-              http.open_timeout = options[:timeout]
-              http.read_timeout = options[:timeout]
-            end
+            http.open_timeout = options[:timeout] || GMO::Const::HTTP_READ_TIMEOUT
+            http.read_timeout = options[:timeout] || GMO::Const::HTTP_READ_TIMEOUT
             http
           end
 
