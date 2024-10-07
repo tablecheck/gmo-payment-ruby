@@ -56,6 +56,7 @@ module GMO
       # gmo.get_request("EntryTran.idPass", {:foo => "bar"})
       # GET /EntryTran.idPass with params foo=bar
       def get_request(name, args = {}, options = {})
+        options[:timeout] = args.delete(:timeout) if args[:timeout]
         api_call(name, args, "get", options)
       end
       alias :get! :get_request
@@ -63,6 +64,7 @@ module GMO
       # gmo.post_request("EntryTran.idPass", {:foo => "bar"})
       # POST /EntryTran.idPass with params foo=bar
       def post_request(name, args = {}, options = {})
+        options[:timeout] = args.delete(:timeout) if args[:timeout]
         args = associate_options_to_gmo_params args
         api_call(name, args, "post", options)
       end
